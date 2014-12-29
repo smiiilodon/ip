@@ -1,1 +1,1 @@
-96.245.58.79
+Run the script on Smilodon to have it email me its IP!
