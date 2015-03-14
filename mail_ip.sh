@@ -1,11 +1,22 @@
 #!/bin/bash
 
-# setup msg
+# Get information
 IP=$(curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//')
+DATE=`date`
 
-eval "sed -i 's/\(Subject: \).*$/\1$IP/g' /home/smilodon/ip/msg.txt"
+# Write the message
+cat << EOF > msg.txt
+To: benjamin.hipple@gmail.com chris.hipple@gmail.com inneekim@gmail.com
+From: smiiilodon@gmail.com
+Subject: $IP
 
-# send it
-ssmtp benjamin.hipple@gmail.com < /home/smilodon/ip/msg.txt
-ssmtp Chris.Hipple@gmail.com < /home/smilodon/ip/msg.txt
-ssmtp inneekim@gmail.com < /home/smilodon/ip/msg.txt
+Hello!
+
+It is currently $DATE and I'm writing to let you know that I'm still alive and well.
+
+Yours truly,
+Smilodon
+EOF
+
+# Mail it
+ssmtp benjamin.hipple@gmail.com Chris.Hipple@gmail.com inneekim@gmail.com < /home/smilodon/ip/msg.txt
