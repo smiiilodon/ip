@@ -3,10 +3,11 @@
 # Get information
 IP=$(curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//')
 DATE=`date`
+RECIPIENTS="benjamin.hipple@gmail.com Chris.Hipple@gmail.com inneekim@gmail.com"
 
 # Write the message
 cat << EOF > msg.txt
-To: benjamin.hipple@gmail.com chris.hipple@gmail.com inneekim@gmail.com
+To: $RECIPIENTS
 From: smiiilodon@gmail.com
 Subject: $IP
 
@@ -19,4 +20,4 @@ Smilodon
 EOF
 
 # Mail it
-ssmtp benjamin.hipple@gmail.com Chris.Hipple@gmail.com inneekim@gmail.com < /home/smilodon/ip/msg.txt
+ssmtp $RECIPIENTS < /home/smilodon/ip/msg.txt
