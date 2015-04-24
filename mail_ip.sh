@@ -6,7 +6,7 @@ DATE=`date`
 RECIPIENTS="benjamin.hipple@gmail.com Chris.Hipple@gmail.com inneekim@gmail.com"
 
 # Write the message
-cat << EOF > msg.txt
+cat << EOF > /home/smilodon/ip/msg.txt
 To: $RECIPIENTS
 From: smiiilodon@gmail.com
 Subject: $IP
@@ -14,6 +14,8 @@ Subject: $IP
 Hello!
 
 It is currently $DATE and I'm writing to let you know that I'm still alive and well.
+
+If you'd like to drop by and say hello, I can be found at http://$IP
 
 Yours truly,
 Smilodon
